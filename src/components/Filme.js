@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Filme({img}) {
+export default function Filme({ img }) {
 
     return (
-        <CaixaFilme>
-            <img src={img.posterURL} alt="" />
-        </CaixaFilme>
+        <Link to={`/sessoes/${img.id}`}>
+            <CaixaFilme>
+                <Efeito></Efeito>
+                <img src={img.posterURL} alt="" />
+            </CaixaFilme>
+        </Link>
     )
 }
 
@@ -20,8 +24,9 @@ const CaixaFilme = styled.div`
     align-items: center;
     margin: 12px;
     cursor: pointer;
-    transition-duration: 0.5s;
-    :hover {
+    transition-duration: 0.3s;
+    position: relative;
+    &:hover {
         background-color: #E8833A;
         box-shadow: 0px 2px 4px 2px #A9A9A9;
         img {
@@ -35,5 +40,20 @@ const CaixaFilme = styled.div`
         height: 196px;
         border-radius: 3px;
         transition-duration: 0.5s;
+    }
+`
+
+const Efeito = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #E8833A;
+    border-radius: 3px;
+    opacity: 0;
+    transition-duration: 0.3s;
+    &:hover {
+        opacity: 0.3;
     }
 `

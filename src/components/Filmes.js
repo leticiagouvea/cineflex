@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Filme from "./Filme";
+import iconeCarregando from "../assets/img/carregando.gif";
 
 export default function Filmes() {
     const [cartaz, setCartaz] = useState([]);
@@ -11,14 +12,21 @@ export default function Filmes() {
         const promise = axios.get(URL);
     
         promise.then((resposta) => {
-            console.log(resposta.data)
             setCartaz(resposta.data)
         })
     
-        promise.catch((erro) => {
-            console.log(erro.response.data)
+        promise.catch(() => {
+            alert("Verifique a conexão da sua internet")
         })
     }, [])
+
+    if (cartaz.length === 0) {
+        return (
+        <Carregando>
+            <img src={iconeCarregando} alt="carregando..." />
+        </Carregando>
+        )
+    }
     
     return (
         <>
@@ -36,13 +44,12 @@ export default function Filmes() {
 const TextoFilmes = styled.div`
     width: 100%;
     min-width: 375px;
-    margin-top: 100px;
+    margin-top: 110px;
     text-align: center;
     
     h1 {
     height: 40px;
     font-size: 24px;
-    color: #293845;
     }
 `
 
@@ -55,4 +62,15 @@ const ConteudoFilmes = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 70px;
+`
+
+const Carregando = styled.div`
+    width: 100%;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 60px;
+    }
 `

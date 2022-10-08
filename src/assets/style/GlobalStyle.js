@@ -29,6 +29,7 @@ body {
 	line-height: 1;
     font-family: 'Roboto', sans-serif;
 	font-weight: 400;
+	color: #293845;
 }
 ol, ul {
 	list-style: none;
@@ -47,6 +48,9 @@ table {
 }
 * {
 	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
 }
 `
 export default GlobalStyle;
