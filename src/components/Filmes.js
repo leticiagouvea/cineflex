@@ -8,15 +8,14 @@ export default function Filmes() {
     const [cartaz, setCartaz] = useState([]);
 
     useEffect(() => {
-        const URL = "https://mock-api.driven.com.br/api/v5/cineflex/movies";
-        const promise = axios.get(URL);
+        const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
     
         promise.then((resposta) => {
             setCartaz(resposta.data)
         })
     
         promise.catch(() => {
-            alert("Verifique a conexão da sua internet")
+            alert("Algo deu errado. Tente novamente.")
         })
     }, [])
 

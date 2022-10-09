@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Assento({id, nome, disponivel, numeroAssento, setNumeroAssento, lugar, setLugar, setAssentoDisponivel}) {
+export default function Assento({id, nome, disponivel, numeroAssento, setNumeroAssento, lugar, setLugar, setAssentoDisponivel, assentoDisponivel}) {
     const [selecionado, setSelecionado] = useState(false);
+    console.log(assentoDisponivel)
 
     return (
         <>
@@ -30,7 +31,7 @@ export default function Assento({id, nome, disponivel, numeroAssento, setNumeroA
                 </BotaoAssento>
             ) : (
                 <BotaoIndisponivel onClick={() => {
-                    alert('Este assento não está disponível')
+                    alert('Esse assento não está disponível')
                 }}>
                     <p>{nome}</p>
                 </BotaoIndisponivel>

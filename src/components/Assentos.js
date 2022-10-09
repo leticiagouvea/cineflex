@@ -27,7 +27,7 @@ export default function Assentos() {
             setAssentos(resposta.data.seats)
 
         }).catch(() => {
-            alert("Algo deu errado. Tente novamente")
+            alert("Algo deu errado. Tente novamente.")
         })
 
     }, [sessaoId])
@@ -48,7 +48,7 @@ export default function Assentos() {
 
             <CaixaAssentos>
                 {assentos.map((value, index) => (
-                    <Assento key={index} id={value.id} nome={value.name} disponivel={value.isAvailable} numeroAssento={numeroAssento} setNumeroAssento={setNumeroAssento} lugar={lugar} setLugar={setLugar} setAssentoDisponivel={setAssentoDisponivel}  />
+                    <Assento key={index} id={value.id} nome={value.name} disponivel={value.isAvailable} numeroAssento={numeroAssento} setNumeroAssento={setNumeroAssento} lugar={lugar} setLugar={setLugar} setAssentoDisponivel={setAssentoDisponivel} assentoDisponivel={assentoDisponivel}  />
                 ))}
             </CaixaAssentos>
 
@@ -105,6 +105,7 @@ const StatusAssentos = styled.div`
     font-size: 12px;
     padding: 0px 40px;
     margin: 0 auto;
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
