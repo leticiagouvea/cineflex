@@ -3,11 +3,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Rodape from "./Rodape";
+import Dias from "./Dias";
 
 export default function Sessoes() {
     const { filmeId } = useParams();
-    const [filme, setFilme] = useState({});
+    const [filme, setFilme] = useState([]);
     const [sessao, setSessao] = useState([]);
+    const [data, setData] = useState("");
+    const [semana, setSemana] = useState("");
 
     console.log(filmeId, sessao)
 
@@ -31,25 +34,20 @@ export default function Sessoes() {
                 <h1>Selecione o horário:</h1>
 
                 <SessaoInfos>
-                    {sessao.map((i) =>
-                    <div key={i.id}>
-                        <p>{i.date} - {i.weekday}</p>
-                        <Horario>
-                            <button key={i.showtimes[0].id}>{i.showtimes[0].name}</button>
-                            <button key={i.showtimes[1].id}>{i.showtimes[1].name}</button>
-                        </Horario>
-                    </div> 
+                    {sessao.map((info, index) => (
+                        <Dias key={index} data={info.date} horarios={info.showtimes} diaSemana={info.weekday} setData={setData} setSemana={setSemana} />
+                    )
                     )}
                 </SessaoInfos>
             </ConteudoSessoes>
 
-            <Rodape filme={filme} />
+            <Rodape filme={filme} data={data} semana={semana} />
         </>
     )
 }
 
 const ConteudoSessoes = styled.div`
-    width: 40%;
+    width: 100%;
     min-width: 375px;
     margin: 0 auto;
     margin-bottom: 130px;
@@ -69,23 +67,4 @@ const SessaoInfos = styled.div`
     justify-content: center;
     padding: 0px 30px;
     margin-bottom: 35px;
-`
-
-const Horario = styled.div`
-    display: flex;
-    justify-content: left;
-    align-items: center;
-
-    button {
-    margin: 15px 10px 30px 0px;
-    border: none;
-    width: 72px;
-    height: 32px;
-    border-radius: 3px;
-    background-color: #E8833A;
-    box-shadow: 1px 1px 2px #696969;
-    color: #FFFFFF;
-    font-weight: 700;
-    cursor: pointer;
-    }
 `

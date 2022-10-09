@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-export default function Rodape({filme}) {
+export default function Rodape({filme, data, dia}) {
     return (
         <CaixaRodape>
             <img src={filme.posterURL} alt="" />
-            <p>{filme.title}</p>
+            <InfosRodape>
+                <p className="titulo-filme">{filme.title}</p>
+                {dia ? (<p className="sessao-data">{dia} - {data}</p>) : ("")}
+            </InfosRodape>
         </CaixaRodape>
     )
 }
@@ -22,7 +25,6 @@ const CaixaRodape = styled.div`
     align-items: center;
     background-color: #C3CFD9;
     border-top: 2px solid #9EADBA;
-    font-weight: 500;
 
     img {
         width: 48px;
@@ -32,8 +34,18 @@ const CaixaRodape = styled.div`
         border-radius: 3px;
         margin-right: 20px;
     }
+`
 
-    p {
-        width: 250px;
+const InfosRodape = styled.div`
+    width: 300px;
+    line-height: 1.5;
+
+    .titulo-filme {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .sessao-data {
+        font-size: 15px;
     }
 `

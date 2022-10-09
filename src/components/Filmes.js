@@ -35,7 +35,7 @@ export default function Filmes() {
             </TextoFilmes>
 
             <ConteudoFilmes>
-                {cartaz.map((img) => <Filme key={img.id} img={img} />)}
+                {cartaz.map((img, index) => <Filme key={index} id={img.id} img={img.posterURL} />)}
             </ConteudoFilmes>
         </>
     )

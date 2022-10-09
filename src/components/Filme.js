@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Filme({ img }) {
+export default function Filme({ img, id }) {
 
     return (
-        <Link to={`/sessoes/${img.id}`}>
+        <Link to={`/sessoes/${id}`}>
             <CaixaFilme>
                 <Efeito></Efeito>
-                <img src={img.posterURL} alt="" />
+                <img src={img} alt="" />
             </CaixaFilme>
         </Link>
     )
