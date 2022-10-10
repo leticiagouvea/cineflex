@@ -4,7 +4,8 @@ import styled from "styled-components";
 export default function Horario({nome, id, diaSemana, setData, setSemana}) {
     return (
         <Link to={`/assentos/${id}`}>
-            <CaixaHorario onClick={() => {
+            <CaixaHorario data-identifier="hour-minute-btn"
+                onClick={() => {
                 setSemana(diaSemana)
                 setData(nome)
             }}>

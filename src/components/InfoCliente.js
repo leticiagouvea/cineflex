@@ -46,7 +46,7 @@ export default function InfoCliente({filme, hora, data, numeroAssento, lugar}) {
            <div className="campo-input">
                 <p>Nome do comprador:</p>
 
-                <input
+                <input data-identifier="buyer-name-input"
                 placeholder="Digite seu nome..."
                 type="text"
                 onChange={(e) => setNome(e.target.value)}
@@ -58,7 +58,7 @@ export default function InfoCliente({filme, hora, data, numeroAssento, lugar}) {
            <div className="campo-input">
                 <p>CPF do comprador:</p>
 
-                <input 
+                <input data-identifier="buyer-cpf-input"
                 placeholder="Digite seu CPF..."
                 type="text"
                 onChange={(e) => setCPF(e.target.value)}
@@ -68,7 +68,7 @@ export default function InfoCliente({filme, hora, data, numeroAssento, lugar}) {
            </div>
     
             <div className="reservar-assentos">
-                <button>Reservar assento(s)</button>
+                <button data-identifier="reservation-btn">Reservar assento(s)</button>
             </div>
         </form>
      </InserirInfos>

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default function Rodape({filme, data, dia}) {
     return (
         <CaixaRodape>
-            <img src={filme.posterURL} alt="" />
-            <InfosRodape>
+            <img data-identifier="movie-img-preview" src={filme.posterURL} alt="" />
+            <InfosRodape data-identifier="movie-and-session-infos-preview">
                 <p className="titulo-filme">{filme.title}</p>
                 {dia ? (<p className="sessao-data">{dia} - {data}</p>) : ("")}
             </InfosRodape>

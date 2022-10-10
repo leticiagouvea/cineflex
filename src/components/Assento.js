@@ -7,7 +7,8 @@ export default function Assento({id, nome, disponivel, numeroAssento, setNumeroA
     return (
         <>
             {disponivel ? (
-                <BotaoAssento selecionado={selecionado} onClick={() => {
+                <BotaoAssento data-identifier="seat" selecionado={selecionado}
+                    onClick={() => {
                     if (!selecionado) {
                         setSelecionado(!selecionado)
                         const novoNumeroAssento = [...numeroAssento, Number(id)];

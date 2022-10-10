@@ -5,7 +5,7 @@ export default function Filme({ img, id }) {
 
     return (
         <Link to={`/sessoes/${id}`}>
-            <CaixaFilme>
+            <CaixaFilme data-identifier="movie-outdoor">
                 <Efeito></Efeito>
                 <img src={img} alt="" />
             </CaixaFilme>

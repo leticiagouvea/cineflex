@@ -53,16 +53,16 @@ export default function Assentos() {
 
             <StatusAssentos>
                 <div className="status">
-                    <div className="selecionado"></div>
+                    <div data-identifier="seat-selected-subtitle" className="selecionado"></div>
                     <p>Selecionado</p>
                 </div>
 
-                <div className="status">
+                <div data-identifier="seat-available-subtitle" className="status">
                     <div className="disponivel"></div>
                     <p>Disponível</p>
                 </div>
 
-                <div className="status">
+                <div data-identifier="seat-unavailable-subtitle" className="status">
                     <div className="indisponivel"></div>
                     <p>indisponivel</p>
                 </div>

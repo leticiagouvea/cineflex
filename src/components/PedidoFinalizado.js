@@ -10,28 +10,28 @@ export default function PedidoFinalizado() {
 
             <div className="info">
                 <h2>Filme e sessão</h2>
-                <p>{filmeTitulo}</p>
-                <p>{data} - {hora}</p>
+                <p data-identifier="movie-session-infos-reserve-finished">{filmeTitulo}</p>
+                <p data-identifier="movie-session-infos-reserve-finished">{data} - {hora}</p>
             </div>
 
             <div className="info">
                 <h2>Ingressos</h2>
 
                 {lugar.map((assento, index) => (
-                    <p key={index}>Assento {assento}</p>
+                    <p data-identifier="seat-infos-reserve-finished" key={index}>Assento {assento}</p>
                 ))}
                 
             </div>
 
             <div className="info">
                 <h2>Comprador</h2>
-                <p>Nome: {nome}</p>
-                <p>CPF: {cpf}</p>
+                <p data-identifier="buyer-infos-reserve-finished">Nome: {nome}</p>
+                <p data-identifier="buyer-infos-reserve-finished">CPF: {cpf}</p>
             </div>
 
             <Link to="/">
                 <div className="botao-home">
-                    <button>Voltar para o início</button>
+                    <button data-identifier="back-to-home-btn">Voltar para o início</button>
                 </div>
             </Link>
 
