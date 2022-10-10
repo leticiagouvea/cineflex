@@ -76,51 +76,64 @@ export default function InfoCliente({filme, hora, data, numeroAssento, lugar}) {
 }
 
 const InserirInfos = styled.div`
+    width: 100%;
     min-width: 375px;
-    margin: 0 auto;
-    margin-bottom: 170px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    font-size: 18px;
+    margin: 0 auto;
 
-    p {
-        height: 30px;
+    form {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 160px;
     }
 
     .campo-input {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         margin-bottom: 30px;
-    }
-    
-    input {
+
+        p {
+        height: 30px;
+        font-size: 18px;
+        }
+
+        input {
         width: 320px;
         height: 50px;
         border: 1px solid #D4D4D4;
         padding: 0px 10px;
         border-radius: 3px;
         outline: none;
-    }
+        }
 
-    input::placeholder {
+        input::placeholder {
         font-style: italic;
         color: #AFAFAF;
         font-size: 16px;
+        }
     }
-
+    
     .reservar-assentos {
         width: 320px;
         display: flex;
         justify-content: center;
 
         button {
-            width: 180px;
-            height: 42px;
-            background-color: #E8833A;
-            border: none;
-            border-radius: 3px;
-            font-size: 15px;
-            color: #FFFFFF;
+        width: 180px;
+        height: 42px;
+        background-color: #E8833A;
+        border: none;
+        border-radius: 3px;
+        font-size: 15px;
+        color: #FFFFFF;
+        cursor: pointer;
         }
     }
 `

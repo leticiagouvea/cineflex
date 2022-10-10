@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Assento({id, nome, disponivel, numeroAssento, setNumeroAssento, lugar, setLugar, setAssentoDisponivel, assentoDisponivel}) {
+export default function Assento({id, nome, disponivel, numeroAssento, setNumeroAssento, lugar, setLugar}) {
     const [selecionado, setSelecionado] = useState(false);
-    console.log(assentoDisponivel)
 
     return (
         <>
@@ -15,14 +14,12 @@ export default function Assento({id, nome, disponivel, numeroAssento, setNumeroA
                         setNumeroAssento(novoNumeroAssento)
                         const novoLugar = [...lugar, nome];
                         setLugar(novoLugar)
-                        setAssentoDisponivel(true)
                     } else {
                         setSelecionado(!selecionado)
-                        const novoNumeroAssento = numeroAssento.slice(0, numeroAssento.length - 1);
+                        const novoNumeroAssento = numeroAssento.filter(value => value !== id);
                         setNumeroAssento(novoNumeroAssento)
-                        const novoLugar = lugar.slice(0, lugar.length - 1);
+                        const novoLugar = lugar.filter(value => value !== nome);
                         setLugar(novoLugar)
-                        setAssentoDisponivel(false)
                     }
                 }}>
                 

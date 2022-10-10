@@ -12,19 +12,16 @@ export default function Sessoes() {
     const [data, setData] = useState("");
     const [semana, setSemana] = useState("");
 
-    console.log(filmeId, sessao)
-
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${filmeId}/showtimes`);
 
         promise.then((resposta) => {
-            console.log(resposta.data.days)
             setFilme(resposta.data)
             setSessao(resposta.data.days)
         })
 
         promise.catch((erro) => {
-            console.log(erro.resposta.data)
+            alert("Algo deu errado. Tente novamente.")
         })
     }, [filmeId])
 

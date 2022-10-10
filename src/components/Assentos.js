@@ -15,7 +15,6 @@ export default function Assentos() {
     const [assentos, setAssentos] = useState([]);
     const [numeroAssento, setNumeroAssento] = useState([]);
     const [lugar, setLugar] = useState([]);
-    const [assentoDisponivel, setAssentoDisponivel] = useState(false);
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessaoId}/seats`);
@@ -48,7 +47,7 @@ export default function Assentos() {
 
             <CaixaAssentos>
                 {assentos.map((value, index) => (
-                    <Assento key={index} id={value.id} nome={value.name} disponivel={value.isAvailable} numeroAssento={numeroAssento} setNumeroAssento={setNumeroAssento} lugar={lugar} setLugar={setLugar} setAssentoDisponivel={setAssentoDisponivel} assentoDisponivel={assentoDisponivel}  />
+                    <Assento key={index} id={value.id} nome={value.name} disponivel={value.isAvailable} numeroAssento={numeroAssento} setNumeroAssento={setNumeroAssento} lugar={lugar} setLugar={setLugar} />
                 ))}
             </CaixaAssentos>
 
@@ -69,7 +68,7 @@ export default function Assentos() {
                 </div>
             </StatusAssentos>
 
-            <InfoCliente filme={filme} hora={hora} dia={dia.weekday} data={dia.date} numeroAssento={numeroAssento} lugar={lugar} assentoDisponivel={assentoDisponivel} />
+            <InfoCliente filme={filme} hora={hora} dia={dia.weekday} data={dia.date} numeroAssento={numeroAssento} lugar={lugar} />
 
             <Rodape filme={filme} dia={dia.weekday} data={dia.date} />
         </>
